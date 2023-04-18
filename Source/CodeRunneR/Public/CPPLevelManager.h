@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "CPPLevelManager.generated.h"
 
+class UBoxComponent;
+
 UCLASS()
 class CODERUNNER_API ACPPLevelManager : public AActor
 {
@@ -23,4 +25,19 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+protected:	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Triggers")
+	UBoxComponent* BoxCollider; 
+	
+	UPROPERTY(EditAnywhere)
+	int CPPNumberOfLanes = 3;
+	UPROPERTY(EditAnywhere)
+	float CPPLaneWidth = 250.f;
+	UPROPERTY(EditAnywhere)
+	float CPPLevelSpeed = -500.f;
+
+	UPROPERTY(EditAnywhere)
+	FVector CPPOutOfBoundBoxScale = FVector(1000.f,1000.f,1000.f);
+	UPROPERTY(EditAnywhere, Meta = (MakeEditWidget = true))
+	FVector CPPOutOfBoundBoxLocation = FVector(0,0,0);
 };
