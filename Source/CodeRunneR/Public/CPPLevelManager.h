@@ -26,9 +26,10 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 protected:	
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Triggers")
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Triggers")
 	UBoxComponent* BoxCollider; 
-	
+
+public:	
 	UPROPERTY(EditAnywhere)
 	int CPPNumberOfLanes = 3;
 	UPROPERTY(EditAnywhere)
@@ -36,8 +37,8 @@ protected:
 	UPROPERTY(EditAnywhere)
 	float CPPLevelSpeed = -500.f;
 
-	UPROPERTY(EditAnywhere)
-	FVector CPPOutOfBoundBoxScale = FVector(1000.f,1000.f,1000.f);
-	UPROPERTY(EditAnywhere, Meta = (MakeEditWidget = true))
-	FVector CPPOutOfBoundBoxLocation = FVector(0,0,0);
+//	UPROPERTY(EditAnywhere)
+//	FVector CPPOutOfBoundBoxScale = FVector(1000.f,1000.f,1000.f);
+//	UPROPERTY(EditAnywhere, Meta = (MakeEditWidget = true))
+//	FVector CPPOutOfBoundBoxLocation = FVector(0,0,0);
 };
