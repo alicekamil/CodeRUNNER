@@ -16,7 +16,9 @@ ACPPLevelManager::ACPPLevelManager()
 		
 	CPPLevelBounds = CreateDefaultSubobject<UBoxComponent>(FName("CPPLevelBounds"));
 	CPPLevelBounds->SetupAttachment(DefaultRoot);
-	CPPLevelBounds->SetWorldLocation(CPPOutOfBoundBoxLocation);
+	//CPPLevelBounds->SetBoxExtent(CPPOutOfBoundBoxScale, true);
+	//CPPLevelBounds->SetWorldLocation(CPPOutOfBoundBoxLocation);
+	
 	
 }
 	
@@ -31,8 +33,7 @@ void ACPPLevelManager::BeginPlay()
 		UE_LOG(LogTemp, Warning, TEXT("CPPLevelBounds works"));
 	}
 	
-	CPPLevelBounds->SetBoxExtent(CPPOutOfBoundBoxScale);
-		
+	
 	
 }
 

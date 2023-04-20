@@ -40,7 +40,7 @@ public:
 	float CPPLevelSpeed = -500.f;
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	FVector CPPOutOfBoundBoxScale = FVector(1000.f,1000.f,1000.f);
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Meta = (MakeEditWidget = true))
-	FVector CPPOutOfBoundBoxLocation = FVector(10.f,10.f,10.f);
+	FVector CPPOutOfBoundBoxScale = FVector(0.f,0.f,0.f);
+	UPROPERTY(BlueprintReadWrite, EditAnywhere,  Meta = (MakeEditWidget = true))
+	FVector CPPOutOfBoundBoxLocation = FVector(0.f,0.f,0.f);
 };
