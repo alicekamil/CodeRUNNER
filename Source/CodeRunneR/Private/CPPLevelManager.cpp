@@ -4,25 +4,36 @@
 #include "CPPLevelManager.h"
 #include "Components/BoxComponent.h"
 #include "Engine/Engine.h"
+#include "TargetInterfaces/MeshTargetInterfaceTypes.h"
 // Sets default values
 ACPPLevelManager::ACPPLevelManager()
-{
+{	
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	
-	BoxCollider = CreateDefaultSubobject<UBoxComponent>(FName("BoxCollider"));
-	RootComponent = BoxCollider;
-	//BoxCollider->SetBoxExtent(FVector(CPPOutOfBoundBoxScale));
-	//BoxCollider->SetupAttachment(GetRootComponent());
-	//BoxCollider->SetGenerateOverlapEvents(true);
+	DefaultRoot = CreateDefaultSubobject<USceneComponent>(TEXT("Defaultoot"));
+	RootComponent = DefaultRoot;
+		
+	CPPLevelBounds = CreateDefaultSubobject<UBoxComponent>(FName("CPPLevelBounds"));
+	CPPLevelBounds->SetupAttachment(DefaultRoot);
+	CPPLevelBounds->SetWorldLocation(CPPOutOfBoundBoxLocation);
 	
-	//BoxCollider->SetWorldLocation(CPPOutOfBoundBoxLocation);
 }
-
+	
 // Called when the game starts or when spawned
 void ACPPLevelManager::BeginPlay()
 {
 	Super::BeginPlay();
+	
+	
+	if (CPPLevelBounds != nullptr)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("CPPLevelBounds works"));
+	}
+	
+	CPPLevelBounds->SetBoxExtent(CPPOutOfBoundBoxScale);
+		
+	
 }
 
 // Called every frame
