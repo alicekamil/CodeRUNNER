@@ -3,46 +3,47 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GameFramework/Pawn.h"
 #include "Kismet/GameplayStatics.h"
 #include "Containers/Array.h"
-#include "GameFramework/Pawn.h"
 #include "CPPPawnBase.generated.h"
 
+class USpringArmComponent;
+class UCapsuleComponent;
+class USkeletalMeshComponent;
+class UCameraComponent;
+
 UCLASS()
+
 class CODERUNNER_API ACPPPawnBase : public APawn
 {
 	GENERATED_BODY()
 
-	UPROPERTY(VisibleAnywhere)
-	class ACPPLevelManager* ForwardedLevelManager; //Forward declaration
-	UPROPERTY(VisibleAnywhere)
-	class UCameraComponent* ForwardedCamera;
-	
-
 public:
 	// Sets default values for this pawn's properties
 	ACPPPawnBase();
+	virtual void Tick(float DeltaTime) override;
 
+	UPROPERTY(VisibleAnywhere)
+	class USceneComponent* CPPSceneRoot;
+	
+		// Called to bind functionality to input
+    	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+private:
+
 	
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	UPROPERTY(VisibleAnywhere)
+	USkeletalMeshComponent* PawnMesh;
+	UPROPERTY(VisibleAnywhere)
+	UCapsuleComponent* Capsule;
 
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
-protected:
-	void MoveRight(float value);
-
-
-
-	//class UCameraComponent* GetCameraComponent() const
-	//{
-	//	return ForwardedCamera;
-	//}
+	UPROPERTY(VisibleAnywhere)
+	USpringArmComponent* SpringArmCPP;
+	UPROPERTY(VisibleAnywhere)
+	UCameraComponent* ViewCamera;
 };
 	
 	
