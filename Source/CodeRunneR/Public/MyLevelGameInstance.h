@@ -6,9 +6,7 @@
 #include "Engine/GameInstance.h"
 #include "MyLevelGameInstance.generated.h"
 
-/**
- * 
- */
+
 UCLASS()
 class CODERUNNER_API UMyLevelGameInstance : public UGameInstance
 {
