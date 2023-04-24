@@ -1,5 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
@@ -8,6 +6,7 @@
 #include "Containers/Array.h"
 #include "CPPPawnBase.generated.h"
 
+class AEndlessRunnerGameMode;
 class USpringArmComponent;
 class UCapsuleComponent;
 class USkeletalMeshComponent;
@@ -27,15 +26,25 @@ public:
 
 	UPROPERTY(VisibleAnywhere)
 	class USceneComponent* CPPSceneRoot;
-	
-		// Called to bind functionality to input
-    	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	// Called to bind functionality to input
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	void Left();
+	void Right();
+	void MoveLane(int direction);
 private:
+	int currentLane;
+	int laneWidth;
+	float targetPosition;
+	bool isMoving;
 
-	
+
+	UPROPERTY(VisibleAnywhere)
+	AEndlessRunnerGameMode* Mode;
+
 	UPROPERTY(VisibleAnywhere)
 	USkeletalMeshComponent* PawnMesh;
 	UPROPERTY(VisibleAnywhere)
@@ -45,8 +54,4 @@ private:
 	USpringArmComponent* SpringArmCPP;
 	UPROPERTY(VisibleAnywhere)
 	UCameraComponent* ViewCamera;
-
-	
 };
-	
-	
