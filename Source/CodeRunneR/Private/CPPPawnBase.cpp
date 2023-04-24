@@ -34,12 +34,18 @@ void ACPPPawnBase::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	
 }
 // Called every frame
 void ACPPPawnBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	/*GetGameMode
+	 *
+	 *
+	 *
+	 * 
+	 */
 }
 
 // Called to bind functionality to input

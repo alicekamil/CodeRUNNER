@@ -15,6 +15,7 @@ class UCameraComponent;
 
 UCLASS()
 
+
 class CODERUNNER_API ACPPPawnBase : public APawn
 {
 	GENERATED_BODY()
@@ -44,6 +45,8 @@ private:
 	USpringArmComponent* SpringArmCPP;
 	UPROPERTY(VisibleAnywhere)
 	UCameraComponent* ViewCamera;
+
+	
 };
 	
 	
