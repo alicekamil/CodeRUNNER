@@ -47,13 +47,13 @@ void ACPPPawnBase::BeginPlay()
 
 void ACPPPawnBase::Left()
 {
-    GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Blue, FString::Printf(TEXT("TLEFTB ITCHC!")));
+    GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Blue, FString::Printf(TEXT("LEFT!")));
     MoveLane(-1);
 }
 
 void ACPPPawnBase::Right()
 {
-    GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Blue, FString::Printf(TEXT("RIGGHT ITCHC!")));
+    GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Blue, FString::Printf(TEXT("RIGHT!")));
     MoveLane(1);
 }
 

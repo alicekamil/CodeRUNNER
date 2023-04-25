@@ -14,23 +14,19 @@ class UCameraComponent;
 
 UCLASS()
 
-
 class CODERUNNER_API ACPPPawnBase : public APawn
 {
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this pawn's properties
 	ACPPPawnBase();
 	virtual void Tick(float DeltaTime) override;
 
 	UPROPERTY(VisibleAnywhere)
 	class USceneComponent* CPPSceneRoot;
-
-	// Called to bind functionality to input
+	
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	void Left();
 	void Right();
@@ -40,9 +36,7 @@ private:
 	int laneWidth;
 	float targetPosition;
 	bool isMoving;
-
-
-	UPROPERTY(VisibleAnywhere)
+	
 	AEndlessRunnerGameMode* Mode;
 
 	UPROPERTY(VisibleAnywhere)
