@@ -1,4 +1,7 @@
 #include "CPPScrollingComponent.h"
+#include "Kismet/GameplayStatics.h"
+#include "EndlessRunnerGameMode.h"
+
 
 // Sets default values for this component's properties
 UCPPScrollingComponent::UCPPScrollingComponent()
@@ -12,8 +15,7 @@ UCPPScrollingComponent::UCPPScrollingComponent()
 void UCPPScrollingComponent::BeginPlay()
 {
 	Super::BeginPlay();
-
-	// ...
+	Mode = Cast<AEndlessRunnerGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
 	
 }
 
@@ -22,6 +24,11 @@ void UCPPScrollingComponent::TickComponent(float DeltaTime, ELevelTick TickType,
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	// ...
-}
+	AActor* Parent = GetOwner();
+	if (Parent)
+	{
+		Movement = (Parent->GetActorForwardVector() * Mode->CPPLevelSpeed) * DeltaTime; 
+		Parent->AddActorLocalOffset(Movement);
+	}
+};
 

@@ -1,7 +1,5 @@
 #include "CPPFloorBase.h"
 #include "Kismet/GameplayStatics.h"
-#include "EndlessRunnerGameMode.h"
-
 
 ACPPFloorBase::ACPPFloorBase()
 {
@@ -14,14 +12,9 @@ ACPPFloorBase::ACPPFloorBase()
 void ACPPFloorBase::BeginPlay()
 {
 	Super::BeginPlay();
-	Mode = Cast<AEndlessRunnerGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
-	
 }
 void ACPPFloorBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	
-	Movement = (GetActorForwardVector() * Mode->CPPLevelSpeed) * DeltaTime; 
-	AddActorLocalOffset(Movement);
 }
 

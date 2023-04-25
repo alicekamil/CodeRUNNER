@@ -36,7 +36,4 @@ public:
  UPROPERTY(BlueprintReadWrite, EditAnywhere,  Meta = (MakeEditWidget = true))
  FVector CPPOutOfBoundBoxLocation = FVector(0.f,0.f,0.f);
  //TArray<FVector> ObstacleRelativeOffsets;
-
-
-
 };

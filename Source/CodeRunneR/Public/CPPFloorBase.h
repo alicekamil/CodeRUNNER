@@ -20,14 +20,13 @@ protected:
 public:	
 	virtual void Tick(float DeltaTime) override;
 
-private:
-	AEndlessRunnerGameMode* Mode;
+protected:
 	
 	UPROPERTY(VisibleAnywhere)
 	USceneComponent* BaseSceneRoot;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = true))
 	UStaticMeshComponent* Mesh;
-	
+
 	FVector Movement;
 	
 };

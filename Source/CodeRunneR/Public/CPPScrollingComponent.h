@@ -5,6 +5,7 @@
 #include "Components/ActorComponent.h"
 #include "CPPScrollingComponent.generated.h"
 
+class AEndlessRunnerGameMode;
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class CODERUNNER_API UCPPScrollingComponent : public UActorComponent
@@ -22,5 +23,9 @@ protected:
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+private:
+	AEndlessRunnerGameMode* Mode;
+	
+	FVector Movement;
 	
 };
