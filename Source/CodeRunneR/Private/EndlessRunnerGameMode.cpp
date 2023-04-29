@@ -1,5 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #include "EndlessRunnerGameMode.h"
 #include "Components/BoxComponent.h"
 #include "CPPPawnBase.h"
@@ -7,7 +5,6 @@
 
 AEndlessRunnerGameMode::AEndlessRunnerGameMode()
 {
-	// set default pawn class to our Blueprinted character
 	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/Blueprints/BP_CPPawnBase"));
 	if (GEngine)
 	{
@@ -19,10 +16,7 @@ AEndlessRunnerGameMode::AEndlessRunnerGameMode()
 	}
 	
 	
-	DefaultRoot = CreateDefaultSubobject<USceneComponent>(TEXT("Defaultoot"));
+	DefaultRoot = CreateDefaultSubobject<USceneComponent>(TEXT("Default"));
 	RootComponent = DefaultRoot;
-		
-	CPPLevelBounds = CreateDefaultSubobject<UBoxComponent>(FName("CPPLevelBounds"));
-	CPPLevelBounds->SetupAttachment(DefaultRoot);
 };	
 
