@@ -10,7 +10,6 @@
 #include "Kismet/GameplayStatics.h"
 #include "Containers/Array.h"
 
-// Sets default values
 ACPPPawnBase::ACPPPawnBase()
 {
     PrimaryActorTick.bCanEverTick = true;
@@ -42,7 +41,8 @@ void ACPPPawnBase::BeginPlay()
         GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Blue, FString::Printf(TEXT("Theres a mode!")));
     }
     currentLane = Mode->CPPNumberOfLanes / 2; //Start with the middle lane (1)
-    //Mode->CPPLaneWidth
+
+    
 }
 
 void ACPPPawnBase::Left()
