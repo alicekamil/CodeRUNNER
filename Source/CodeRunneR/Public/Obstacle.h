@@ -12,10 +12,15 @@ class CODERUNNER_API AObstacle : public AActor
 public:	
 	AObstacle();
 
+	UPROPERTY(VisibleAnywhere)
+	class USceneComponent* SceneComponent;
+
+	UPROPERTY(VisibleAnywhere)
+	class UStaticMeshComponent* StaticMesh;
+	
+
 protected:
 	virtual void BeginPlay() override;
-
-public:	
-	virtual void Tick(float DeltaTime) override;
+	
 
 };

@@ -2,19 +2,17 @@
 
 AObstacle::AObstacle()
 {
-	PrimaryActorTick.bCanEverTick = true;
+	SceneComponent = CreateDefaultSubobject<USceneComponent>(TEXT("Scene"));
+	RootComponent = SceneComponent;
 
+	StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
+	StaticMesh->SetupAttachment(SceneComponent);
+	
 }
 
 void AObstacle::BeginPlay()
 {
 	Super::BeginPlay();
 	
-}
-
-void AObstacle::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
 }
 

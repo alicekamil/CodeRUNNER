@@ -12,7 +12,7 @@ ASpawner::ASpawner()
 void ASpawner::BeginPlay()
 {
 	Super::BeginPlay();
-	GameMode = Cast<AEndlessRunnerGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
+	GameMode = GetWorld()->GetAuthGameMode<AEndlessRunnerGameMode>();
 }
 
 void ASpawner::Tick(float DeltaTime)

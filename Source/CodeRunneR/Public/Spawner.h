@@ -17,6 +17,8 @@ public:
 	UPROPERTY(EditAnywhere)
 	TArray<TSubclassOf<AActor>> SpawnableObject;
 	UPROPERTY(EditAnywhere)
+	TArray<FVector> SpawnableLocations;
+	UPROPERTY(EditAnywhere)
 	float SpawnDistance; 
 
 	virtual void Tick(float DeltaTime) override;
