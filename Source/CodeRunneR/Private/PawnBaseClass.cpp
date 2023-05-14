@@ -1,15 +1,13 @@
 #include "PawnBaseClass.h"
-
 #include "EndlessRunnerGameMode.h"
-#include "Obstacle.h"
 #include "GameFramework/Actor.h"
 #include "GameFramework/SpringArmComponent.h"
-#include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Engine/Engine.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Containers/Array.h"
+#include "Engine/DamageEvents.h"
 
 APawnBaseClass::APawnBaseClass()
 {
@@ -21,15 +19,21 @@ APawnBaseClass::APawnBaseClass()
     Mesh->SetupAttachment(RootComponent);
     Capsule = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Capsule"));
     Capsule->SetupAttachment(RootComponent);
-
-
+	Capsule->SetCollisionProfileName(TEXT("PawnBaseClass"));
+	Capsule->SetGenerateOverlapEvents(true);
+	
+	
     AutoPossessPlayer = EAutoReceiveInput::Player0;
+
 }
 
 void APawnBaseClass::BeginPlay()
 {
 	Super::BeginPlay();
 	Mode = GetWorld()->GetAuthGameMode<AEndlessRunnerGameMode>();
+	
+
+
 }
 
 void APawnBaseClass::Tick(float DeltaTime)
@@ -43,6 +47,7 @@ void APawnBaseClass::Tick(float DeltaTime)
 		UE_LOG(LogTemp, Warning, TEXT("Initialised Player Index: %d, Player Lane: %d"), PlayerIndex, CurrentLane);
 	}
 }
+
 
 void APawnBaseClass::Right()
 {
@@ -83,6 +88,7 @@ void APawnBaseClass::UpdatePosition()
 	CurrentPosition.Z = 0;
 	SetActorLocation(CurrentPosition);
 }
+
 
 void APawnBaseClass::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {

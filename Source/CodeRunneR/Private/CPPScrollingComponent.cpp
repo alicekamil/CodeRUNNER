@@ -23,6 +23,11 @@ void UCPPScrollingComponent::TickComponent(float DeltaTime, ELevelTick TickType,
 		Parent->AddActorLocalOffset(-Movement);
 		if (Parent->GetActorLocation().X < Mode->OutOfBoundsLoc)
 		{
+			// 10% chance of explosion
+			if (FMath::FRandRange(0.0f, 1.0f) < 0.0167f)
+			{
+				GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Red, FString::Printf(TEXT("10")));
+			}
 			Parent->Destroy();
 		}
 	}

@@ -16,7 +16,7 @@ void ABasePlayerController::BeginPlay()
 	Super::BeginPlay();
 	
 	
-	Player1 = Cast<APawnBaseClass>(GetPawn()); //offset on player 1
+	Player1 = Cast<APawnBaseClass>(GetPawn()); 
 	Player2 = GetWorld()->SpawnActor<APawnBaseClass>(GetWorld()->GetAuthGameMode()->DefaultPawnClass, FVector(0, 250, 0), FRotator(0, 0, 0));
 	GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Red, FString::Printf(TEXT("Spawning players!")));
 

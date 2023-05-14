@@ -7,6 +7,7 @@
 
 class ARunnerCharacter;
 
+
 UCLASS()
 class AEndlessRunnerGameMode : public AGameModeBase
 {
@@ -18,11 +19,6 @@ protected:
 
 public:
  AEndlessRunnerGameMode();
-
-	// float LaneOffset(int laneIndex);
-
-	APawnBaseClass* player1;
-	APawnBaseClass* player2;
 
 	float StartTime;
 	float InitialLevelSpeed;
@@ -37,5 +33,5 @@ public:
 
 	
  UPROPERTY(EditAnywhere)
- float OutOfBoundsLoc = -100.f;
+ float OutOfBoundsLoc = -600.f;
 };

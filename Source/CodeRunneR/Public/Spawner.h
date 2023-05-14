@@ -5,6 +5,7 @@
 #include "Spawner.generated.h"
 
 class AEndlessRunnerGameMode;
+class ATargetPoint;
 
 UCLASS()
 class CODERUNNER_API ASpawner : public AActor
@@ -14,17 +15,23 @@ class CODERUNNER_API ASpawner : public AActor
 public:
 	ASpawner();
 
+	UPROPERTY()
+	TArray<AActor*> TargetPoints;
+	
 	UPROPERTY(EditAnywhere)
 	TArray<TSubclassOf<AActor>> SpawnableObject;
 	UPROPERTY(EditAnywhere)
-	TArray<FVector> SpawnableLocations;
-	UPROPERTY(EditAnywhere)
-	float SpawnDistance; 
+	float SpawnDistance;
+	
+	FVector newPos;
+	UPROPERTY()
+	ATargetPoint* RandomTarget;
 
 	virtual void Tick(float DeltaTime) override;
 
 protected:
 	virtual void BeginPlay() override;
+	FVector GetTargetPosition(int32 Index);
 
 private:
 	UPROPERTY()
