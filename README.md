@@ -1,6 +1,6 @@
 # CodeRUNNER
 
-For now, the obstacles position is randomized, the collision doesnt work. This and things listed below is what im striving to fix til next due date:
+For now, the obstacles position is randomized, the collision doesnt work. This and things listed below is what im striving to fix:
 *Preset floor tiles with obstacles, store them in a tile database, ramp up difficulty as time passes.
 *Collectables? 
 *Score system and health system
